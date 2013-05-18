@@ -17,7 +17,7 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-namespace EntityFrameworkTest
+namespace DataLayer
 {
     #region Contexts
     
@@ -124,7 +124,7 @@ namespace EntityFrameworkTest
 
         #endregion
 
-        #region Primitive Properties
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -143,7 +143,7 @@ namespace EntityFrameworkTest
                 {
                     OnidChanging(value);
                     ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
+                    _id = StructuralObject.SetValidValue(value, "id");
                     ReportPropertyChanged("id");
                     OnidChanged();
                 }
@@ -168,7 +168,7 @@ namespace EntityFrameworkTest
             {
                 OnfnameChanging(value);
                 ReportPropertyChanging("fname");
-                _fname = StructuralObject.SetValidValue(value, true);
+                _fname = StructuralObject.SetValidValue(value, true, "fname");
                 ReportPropertyChanged("fname");
                 OnfnameChanged();
             }
@@ -192,7 +192,7 @@ namespace EntityFrameworkTest
             {
                 OnlnameChanging(value);
                 ReportPropertyChanging("lname");
-                _lname = StructuralObject.SetValidValue(value, true);
+                _lname = StructuralObject.SetValidValue(value, true, "lname");
                 ReportPropertyChanged("lname");
                 OnlnameChanged();
             }
@@ -216,7 +216,7 @@ namespace EntityFrameworkTest
             {
                 OnphoneChanging(value);
                 ReportPropertyChanging("phone");
-                _phone = StructuralObject.SetValidValue(value, true);
+                _phone = StructuralObject.SetValidValue(value, true, "phone");
                 ReportPropertyChanged("phone");
                 OnphoneChanged();
             }
@@ -227,10 +227,8 @@ namespace EntityFrameworkTest
 
         #endregion
 
-    
     }
 
     #endregion
 
-    
 }
